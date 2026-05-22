@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arthur's Chocolate Theory</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,#3b1f12,#8b5a2b);
+      color:#fff5e6;
+      overflow-x:hidden;
+    }
+
+    header{
+      text-align:center;
+      padding:80px 20px;
+      background:rgba(0,0,0,0.35);
+      border-bottom:4px solid #f7c46c;
+    }
+
+    header h1{
+      font-size:3.5rem;
+      margin-bottom:15px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    header p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+      font-size:1.2rem;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-10px);
+      }
+    }
+
+    .container{
+      width:90%;
+      max-width:1100px;
+      margin:auto;
+      padding:50px 0;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.08);
+      padding:30px;
+      margin-bottom:30px;
+      border-radius:20px;
+      backdrop-filter: blur(6px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:scale(1.02);
+    }
+
+    h2{
+      color:#ffd27f;
+      margin-bottom:15px;
+      font-size:2rem;
+    }
+
+    p{
+      line-height:1.8;
+    }
+
+    .facts{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+      margin-top:20px;
+    }
+
+    .fact{
+      background:rgba(0,0,0,0.25);
+      padding:20px;
+      border-radius:15px;
+      text-align:center;
+    }
+
+    .fact h3{
+      margin-bottom:10px;
+      color:#ffe1a8;
+    }
+
+    button{
+      margin-top:20px;
+      padding:14px 28px;
+      border:none;
+      border-radius:50px;
+      background:#ffca68;
+      color:#3b1f12;
+      font-weight:bold;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+    #theory{
+      margin-top:20px;
+      font-size:1.2rem;
+      min-height:40px;
+      color:#fff7d8;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:rgba(0,0,0,0.4);
+      margin-top:40px;
+    }
+
+    .emoji{
+      font-size:5rem;
+      margin-bottom:15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="emoji">📚🍫</div>
+
+    <h1>Why Chocolate Bars Crumble More In Libraries</h1>
+
+    <p>
+      A highly serious scientific investigation conducted by Arthur,
+      who accidentally destroyed an entire chocolate bar in the silent section.
+    </p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Arthur's Discovery</h2>
+
+      <p>
+        One quiet afternoon, Arthur entered a library carrying a perfectly solid
+        chocolate bar. Moments later, while opening it beside the history books,
+        the bar exploded into crumbs.
+      </p>
+
+      <br>
+
+      <p>
+        Since that tragic event, Arthur has dedicated his life to discovering why
+        chocolate becomes dramatically more fragile inside libraries.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>The Main Theories</h2>
+
+      <div class="facts">
+
+        <div class="fact">
+          <h3>Extreme Silence</h3>
+          <p>
+            Every tiny crunch sounds 50 times louder in a library,
+            making normal crumbs feel catastrophic.
+          </p>
+        </div>
+
+        <div class="fact">
+          <h3>Book Dust</h3>
+          <p>
+            Arthur believes ancient book dust weakens chocolate structure
+            through mysterious crumb vibrations.
+          </p>
+        </div>
+
+        <div class="fact">
+          <h3>Nervous Hands</h3>
+          <p>
+            People squeeze chocolate too tightly because they fear making noise,
+            accidentally crushing it.
+          </p>
+        </div>
+
+        <div class="fact">
+          <h3>Library Physics</h3>
+          <p>
+            According to Arthur, libraries operate under special snack-related
+            physics that scientists refuse to study.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Arthur's Official Advice</h2>
+
+      <ul style="padding-left:20px; line-height:2;">
+        <li>Never eat crunchy chocolate near librarians.</li>
+        <li>Open wrappers slowly and carefully.</li>
+        <li>Always carry emergency crumb napkins.</li>
+        <li>Do not panic if crumbs reach the carpet.</li>
+      </ul>
+
+      <button onclick="newTheory()">
+        Generate Random Arthur Theory
+      </button>
+
+      <div id="theory"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    Dedicated to Arthur's brave chocolate research 🍫
+  </footer>
+
+  <script>
+    const theories = [
+      "Arthur believes chocolate becomes emotionally unstable around books.",
+      "Arthur says whispers create microscopic cracks in chocolate bars.",
+      "Arthur once lost an entire Twix between two encyclopedias.",
+      "Arthur claims librarians secretly increase crumb gravity.",
+      "Arthur discovered that silence increases crunch pressure.",
+      "Arthur insists crunchy chocolate can smell fear."
+    ];
+
+    function newTheory(){
+      const random =
+        theories[Math.floor(Math.random() * theories.length)];
+
+      document.getElementById("theory").innerText = random;
+    }
+  </script>
+
+</body>
+</html>
